@@ -184,7 +184,7 @@ var holidays = {
          "24" : "Heritage Day"
       }
    }
-}
+};
 
 
 var workdays = {
@@ -1922,6 +1922,6 @@ var workdays = {
          "7" : "fri"
       }
    }
-}
+};
 
 

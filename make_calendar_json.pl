@@ -74,8 +74,8 @@ foreach my $theYear ($startYear .. $startYear+5) {
 	
  	my $json_holidays = $coder->encode ($holidays);
  	my $json_workdays = $coder->encode ($holidays);
-	printf("var holidays = %s\n\n",$coder->encode($holidays));
-	printf("var workdays = %s\n\n",$coder->encode($workdays));
+	printf("var holidays = %s;\n\n",$coder->encode($holidays));
+	printf("var workdays = %s;\n\n",$coder->encode($workdays));
 
 sub isHoliday {
 
