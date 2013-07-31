@@ -16,7 +16,7 @@ function doActions() {
 	thisbutton.click(function() {
  
 		var thisthis = $(this);
-		var monthClicked =thisthis.id();
+		var monthClicked =thisthis.attr("name");
 		alert(monthClicked); 
 	});
 
