@@ -1,195 +1,194 @@
 var holidays = {
    "2013" : {
-      "apr" : {
+      "Apr" : {
          "1" : "Family Day",
          "27" : "Freedom Day"
       },
-      "aug" : {
+      "Aug" : {
          "9" : "National Women's Day"
       },
-      "dec" : {
+      "Dec" : {
          "16" : "Day of Reconciliation",
          "25" : "Christmas",
          "26" : "Day of Goodwill"
       },
-      "jan" : {
+      "Jan" : {
          "1" : "New Year's Day"
       },
-      "jun" : {
+      "Jun" : {
          "17" : "Youth Day (Soweto Day)"
       },
-      "mar" : {
+      "Mar" : {
          "21" : "Human Rights Day",
          "29" : "Good Friday",
          "31" : "Easter Sunday"
       },
-      "may" : {
+      "May" : {
          "1" : "Workers Day"
       },
-      "sep" : {
+      "Sep" : {
          "24" : "Heritage Day"
       }
    },
    "2014" : {
-      "apr" : {
+      "Apr" : {
          "18" : "Good Friday",
          "20" : "Easter Sunday",
          "21" : "Family Day",
          "28" : "Freedom Day"
       },
-      "aug" : {
+      "Aug" : {
          "9" : "National Women's Day"
       },
-      "dec" : {
+      "Dec" : {
          "16" : "Day of Reconciliation",
          "25" : "Christmas",
          "26" : "Day of Goodwill"
       },
-      "jan" : {
+      "Jan" : {
          "1" : "New Year's Day"
       },
-      "jun" : {
+      "Jun" : {
          "16" : "Youth Day (Soweto Day)"
       },
-      "mar" : {
+      "Mar" : {
          "21" : "Human Rights Day"
       },
-      "may" : {
+      "May" : {
          "1" : "Workers Day"
       },
-      "sep" : {
+      "Sep" : {
          "24" : "Heritage Day"
       }
    },
    "2015" : {
-      "apr" : {
+      "Apr" : {
          "27" : "Freedom Day",
          "3" : "Good Friday",
          "5" : "Easter Sunday",
          "6" : "Family Day"
       },
-      "aug" : {
+      "Aug" : {
          "10" : "National Women's Day"
       },
-      "dec" : {
+      "Dec" : {
          "16" : "Day of Reconciliation",
          "25" : "Christmas",
          "26" : "Day of Goodwill"
       },
-      "jan" : {
+      "Jan" : {
          "1" : "New Year's Day"
       },
-      "jun" : {
+      "Jun" : {
          "16" : "Youth Day (Soweto Day)"
       },
-      "mar" : {
+      "Mar" : {
          "21" : "Human Rights Day"
       },
-      "may" : {
+      "May" : {
          "1" : "Workers Day"
       },
-      "sep" : {
+      "Sep" : {
          "24" : "Heritage Day"
       }
    },
    "2016" : {
-      "apr" : {
+      "Apr" : {
          "27" : "Freedom Day"
       },
-      "aug" : {
+      "Aug" : {
          "9" : "National Women's Day"
       },
-      "dec" : {
+      "Dec" : {
          "16" : "Day of Reconciliation",
          "26" : "Christmas"
       },
-      "jan" : {
+      "Jan" : {
          "1" : "New Year's Day"
       },
-      "jun" : {
+      "Jun" : {
          "16" : "Youth Day (Soweto Day)"
       },
-      "mar" : {
+      "Mar" : {
          "21" : "Human Rights Day",
          "25" : "Good Friday",
          "27" : "Easter Sunday",
          "28" : "Family Day"
       },
-      "may" : {
+      "May" : {
          "2" : "Workers Day"
       },
-      "sep" : {
+      "Sep" : {
          "24" : "Heritage Day"
       }
    },
    "2017" : {
-      "apr" : {
+      "Apr" : {
          "14" : "Good Friday",
          "16" : "Easter Sunday",
          "17" : "Family Day",
          "27" : "Freedom Day"
       },
-      "aug" : {
+      "Aug" : {
          "9" : "National Women's Day"
       },
-      "dec" : {
+      "Dec" : {
          "16" : "Day of Reconciliation",
          "25" : "Christmas",
          "26" : "Day of Goodwill"
       },
-      "jan" : {
+      "Jan" : {
          "2" : "New Year's Day"
       },
-      "jun" : {
+      "Jun" : {
          "16" : "Youth Day (Soweto Day)"
       },
-      "mar" : {
+      "Mar" : {
          "21" : "Human Rights Day"
       },
-      "may" : {
+      "May" : {
          "1" : "Workers Day"
       },
-      "sep" : {
+      "Sep" : {
          "25" : "Heritage Day"
       }
    },
    "2018" : {
-      "apr" : {
+      "Apr" : {
          "1" : "Easter Sunday",
          "2" : "Family Day",
          "27" : "Freedom Day"
       },
-      "aug" : {
+      "Aug" : {
          "9" : "National Women's Day"
       },
-      "dec" : {
+      "Dec" : {
          "17" : "Day of Reconciliation",
          "25" : "Christmas",
          "26" : "Day of Goodwill"
       },
-      "jan" : {
+      "Jan" : {
          "1" : "New Year's Day"
       },
-      "jun" : {
+      "Jun" : {
          "16" : "Youth Day (Soweto Day)"
       },
-      "mar" : {
+      "Mar" : {
          "21" : "Human Rights Day",
          "30" : "Good Friday"
       },
-      "may" : {
+      "May" : {
          "1" : "Workers Day"
       },
-      "sep" : {
+      "Sep" : {
          "24" : "Heritage Day"
       }
    }
 };
 
-
 var workdays = {
    "2013" : {
-      "apr" : {
+      "Apr" : {
          "1" : "mon",
          "10" : "wed",
          "11" : "thu",
@@ -214,7 +213,7 @@ var workdays = {
          "8" : "mon",
          "9" : "tue"
       },
-      "aug" : {
+      "Aug" : {
          "1" : "thu",
          "12" : "mon",
          "13" : "tue",
@@ -238,7 +237,7 @@ var workdays = {
          "8" : "thu",
          "9" : "fri"
       },
-      "dec" : {
+      "Dec" : {
          "10" : "tue",
          "11" : "wed",
          "12" : "thu",
@@ -262,7 +261,7 @@ var workdays = {
          "6" : "fri",
          "9" : "mon"
       },
-      "feb" : {
+      "Feb" : {
          "1" : "fri",
          "11" : "mon",
          "12" : "tue",
@@ -284,7 +283,7 @@ var workdays = {
          "7" : "thu",
          "8" : "fri"
       },
-      "jan" : {
+      "Jan" : {
          "1" : "tue",
          "10" : "thu",
          "11" : "fri",
@@ -309,7 +308,7 @@ var workdays = {
          "8" : "tue",
          "9" : "wed"
       },
-      "jul" : {
+      "Jul" : {
          "1" : "mon",
          "10" : "wed",
          "11" : "thu",
@@ -334,7 +333,7 @@ var workdays = {
          "8" : "mon",
          "9" : "tue"
       },
-      "jun" : {
+      "Jun" : {
          "10" : "mon",
          "11" : "tue",
          "12" : "wed",
@@ -356,7 +355,7 @@ var workdays = {
          "6" : "thu",
          "7" : "fri"
       },
-      "mar" : {
+      "Mar" : {
          "1" : "fri",
          "11" : "mon",
          "12" : "tue",
@@ -380,7 +379,7 @@ var workdays = {
          "7" : "thu",
          "8" : "fri"
       },
-      "may" : {
+      "May" : {
          "1" : "wed",
          "10" : "fri",
          "13" : "mon",
@@ -405,7 +404,7 @@ var workdays = {
          "8" : "wed",
          "9" : "thu"
       },
-      "nov" : {
+      "Nov" : {
          "1" : "fri",
          "11" : "mon",
          "12" : "tue",
@@ -428,7 +427,7 @@ var workdays = {
          "7" : "thu",
          "8" : "fri"
       },
-      "oct" : {
+      "Oct" : {
          "1" : "tue",
          "10" : "thu",
          "11" : "fri",
@@ -453,7 +452,7 @@ var workdays = {
          "8" : "tue",
          "9" : "wed"
       },
-      "sep" : {
+      "Sep" : {
          "10" : "tue",
          "11" : "wed",
          "12" : "thu",
@@ -478,7 +477,7 @@ var workdays = {
       }
    },
    "2014" : {
-      "apr" : {
+      "Apr" : {
          "1" : "tue",
          "10" : "thu",
          "11" : "fri",
@@ -503,7 +502,7 @@ var workdays = {
          "8" : "tue",
          "9" : "wed"
       },
-      "aug" : {
+      "Aug" : {
          "1" : "fri",
          "11" : "mon",
          "12" : "tue",
@@ -527,7 +526,7 @@ var workdays = {
          "8" : "fri",
          "9" : "sat"
       },
-      "dec" : {
+      "Dec" : {
          "1" : "mon",
          "10" : "wed",
          "11" : "thu",
@@ -552,7 +551,7 @@ var workdays = {
          "8" : "mon",
          "9" : "tue"
       },
-      "feb" : {
+      "Feb" : {
          "10" : "mon",
          "11" : "tue",
          "12" : "wed",
@@ -574,7 +573,7 @@ var workdays = {
          "6" : "thu",
          "7" : "fri"
       },
-      "jan" : {
+      "Jan" : {
          "1" : "wed",
          "10" : "fri",
          "13" : "mon",
@@ -599,7 +598,7 @@ var workdays = {
          "8" : "wed",
          "9" : "thu"
       },
-      "jul" : {
+      "Jul" : {
          "1" : "tue",
          "10" : "thu",
          "11" : "fri",
@@ -624,7 +623,7 @@ var workdays = {
          "8" : "tue",
          "9" : "wed"
       },
-      "jun" : {
+      "Jun" : {
          "10" : "tue",
          "11" : "wed",
          "12" : "thu",
@@ -647,7 +646,7 @@ var workdays = {
          "6" : "fri",
          "9" : "mon"
       },
-      "mar" : {
+      "Mar" : {
          "10" : "mon",
          "11" : "tue",
          "12" : "wed",
@@ -670,7 +669,7 @@ var workdays = {
          "6" : "thu",
          "7" : "fri"
       },
-      "may" : {
+      "May" : {
          "1" : "thu",
          "12" : "mon",
          "13" : "tue",
@@ -694,7 +693,7 @@ var workdays = {
          "8" : "thu",
          "9" : "fri"
       },
-      "nov" : {
+      "Nov" : {
          "10" : "mon",
          "11" : "tue",
          "12" : "wed",
@@ -716,7 +715,7 @@ var workdays = {
          "6" : "thu",
          "7" : "fri"
       },
-      "oct" : {
+      "Oct" : {
          "1" : "wed",
          "10" : "fri",
          "13" : "mon",
@@ -741,7 +740,7 @@ var workdays = {
          "8" : "wed",
          "9" : "thu"
       },
-      "sep" : {
+      "Sep" : {
          "1" : "mon",
          "10" : "wed",
          "11" : "thu",
@@ -767,7 +766,7 @@ var workdays = {
       }
    },
    "2015" : {
-      "apr" : {
+      "Apr" : {
          "1" : "wed",
          "10" : "fri",
          "13" : "mon",
@@ -792,7 +791,7 @@ var workdays = {
          "8" : "wed",
          "9" : "thu"
       },
-      "aug" : {
+      "Aug" : {
          "10" : "mon",
          "11" : "tue",
          "12" : "wed",
@@ -815,7 +814,7 @@ var workdays = {
          "6" : "thu",
          "7" : "fri"
       },
-      "dec" : {
+      "Dec" : {
          "1" : "tue",
          "10" : "thu",
          "11" : "fri",
@@ -841,7 +840,7 @@ var workdays = {
          "8" : "tue",
          "9" : "wed"
       },
-      "feb" : {
+      "Feb" : {
          "10" : "tue",
          "11" : "wed",
          "12" : "thu",
@@ -863,7 +862,7 @@ var workdays = {
          "6" : "fri",
          "9" : "mon"
       },
-      "jan" : {
+      "Jan" : {
          "1" : "thu",
          "12" : "mon",
          "13" : "tue",
@@ -887,7 +886,7 @@ var workdays = {
          "8" : "thu",
          "9" : "fri"
       },
-      "jul" : {
+      "Jul" : {
          "1" : "wed",
          "10" : "fri",
          "13" : "mon",
@@ -912,7 +911,7 @@ var workdays = {
          "8" : "wed",
          "9" : "thu"
       },
-      "jun" : {
+      "Jun" : {
          "1" : "mon",
          "10" : "wed",
          "11" : "thu",
@@ -936,7 +935,7 @@ var workdays = {
          "8" : "mon",
          "9" : "tue"
       },
-      "mar" : {
+      "Mar" : {
          "10" : "tue",
          "11" : "wed",
          "12" : "thu",
@@ -961,7 +960,7 @@ var workdays = {
          "6" : "fri",
          "9" : "mon"
       },
-      "may" : {
+      "May" : {
          "1" : "fri",
          "11" : "mon",
          "12" : "tue",
@@ -984,7 +983,7 @@ var workdays = {
          "7" : "thu",
          "8" : "fri"
       },
-      "nov" : {
+      "Nov" : {
          "10" : "tue",
          "11" : "wed",
          "12" : "thu",
@@ -1007,7 +1006,7 @@ var workdays = {
          "6" : "fri",
          "9" : "mon"
       },
-      "oct" : {
+      "Oct" : {
          "1" : "thu",
          "12" : "mon",
          "13" : "tue",
@@ -1031,7 +1030,7 @@ var workdays = {
          "8" : "thu",
          "9" : "fri"
       },
-      "sep" : {
+      "Sep" : {
          "1" : "tue",
          "10" : "thu",
          "11" : "fri",
@@ -1057,7 +1056,7 @@ var workdays = {
       }
    },
    "2016" : {
-      "apr" : {
+      "Apr" : {
          "1" : "fri",
          "11" : "mon",
          "12" : "tue",
@@ -1080,7 +1079,7 @@ var workdays = {
          "7" : "thu",
          "8" : "fri"
       },
-      "aug" : {
+      "Aug" : {
          "1" : "mon",
          "10" : "wed",
          "11" : "thu",
@@ -1105,7 +1104,7 @@ var workdays = {
          "8" : "mon",
          "9" : "tue"
       },
-      "dec" : {
+      "Dec" : {
          "1" : "thu",
          "12" : "mon",
          "13" : "tue",
@@ -1129,7 +1128,7 @@ var workdays = {
          "8" : "thu",
          "9" : "fri"
       },
-      "feb" : {
+      "Feb" : {
          "1" : "mon",
          "10" : "wed",
          "11" : "thu",
@@ -1152,7 +1151,7 @@ var workdays = {
          "8" : "mon",
          "9" : "tue"
       },
-      "jan" : {
+      "Jan" : {
          "1" : "fri",
          "11" : "mon",
          "12" : "tue",
@@ -1175,7 +1174,7 @@ var workdays = {
          "7" : "thu",
          "8" : "fri"
       },
-      "jul" : {
+      "Jul" : {
          "1" : "fri",
          "11" : "mon",
          "12" : "tue",
@@ -1198,7 +1197,7 @@ var workdays = {
          "7" : "thu",
          "8" : "fri"
       },
-      "jun" : {
+      "Jun" : {
          "1" : "wed",
          "10" : "fri",
          "13" : "mon",
@@ -1222,7 +1221,7 @@ var workdays = {
          "8" : "wed",
          "9" : "thu"
       },
-      "mar" : {
+      "Mar" : {
          "1" : "tue",
          "10" : "thu",
          "11" : "fri",
@@ -1248,7 +1247,7 @@ var workdays = {
          "8" : "tue",
          "9" : "wed"
       },
-      "may" : {
+      "May" : {
          "10" : "tue",
          "11" : "wed",
          "12" : "thu",
@@ -1272,7 +1271,7 @@ var workdays = {
          "6" : "fri",
          "9" : "mon"
       },
-      "nov" : {
+      "Nov" : {
          "1" : "tue",
          "10" : "thu",
          "11" : "fri",
@@ -1296,7 +1295,7 @@ var workdays = {
          "8" : "tue",
          "9" : "wed"
       },
-      "oct" : {
+      "Oct" : {
          "10" : "mon",
          "11" : "tue",
          "12" : "wed",
@@ -1319,7 +1318,7 @@ var workdays = {
          "6" : "thu",
          "7" : "fri"
       },
-      "sep" : {
+      "Sep" : {
          "1" : "thu",
          "12" : "mon",
          "13" : "tue",
@@ -1346,7 +1345,7 @@ var workdays = {
       }
    },
    "2017" : {
-      "apr" : {
+      "Apr" : {
          "10" : "mon",
          "11" : "tue",
          "12" : "wed",
@@ -1369,7 +1368,7 @@ var workdays = {
          "6" : "thu",
          "7" : "fri"
       },
-      "aug" : {
+      "Aug" : {
          "1" : "tue",
          "10" : "thu",
          "11" : "fri",
@@ -1394,7 +1393,7 @@ var workdays = {
          "8" : "tue",
          "9" : "wed"
       },
-      "dec" : {
+      "Dec" : {
          "1" : "fri",
          "11" : "mon",
          "12" : "tue",
@@ -1418,7 +1417,7 @@ var workdays = {
          "7" : "thu",
          "8" : "fri"
       },
-      "feb" : {
+      "Feb" : {
          "1" : "wed",
          "10" : "fri",
          "13" : "mon",
@@ -1440,7 +1439,7 @@ var workdays = {
          "8" : "wed",
          "9" : "thu"
       },
-      "jan" : {
+      "Jan" : {
          "10" : "tue",
          "11" : "wed",
          "12" : "thu",
@@ -1464,7 +1463,7 @@ var workdays = {
          "6" : "fri",
          "9" : "mon"
       },
-      "jul" : {
+      "Jul" : {
          "10" : "mon",
          "11" : "tue",
          "12" : "wed",
@@ -1487,7 +1486,7 @@ var workdays = {
          "6" : "thu",
          "7" : "fri"
       },
-      "jun" : {
+      "Jun" : {
          "1" : "thu",
          "12" : "mon",
          "13" : "tue",
@@ -1511,7 +1510,7 @@ var workdays = {
          "8" : "thu",
          "9" : "fri"
       },
-      "mar" : {
+      "Mar" : {
          "1" : "wed",
          "10" : "fri",
          "13" : "mon",
@@ -1536,7 +1535,7 @@ var workdays = {
          "8" : "wed",
          "9" : "thu"
       },
-      "may" : {
+      "May" : {
          "1" : "mon",
          "10" : "wed",
          "11" : "thu",
@@ -1561,7 +1560,7 @@ var workdays = {
          "8" : "mon",
          "9" : "tue"
       },
-      "nov" : {
+      "Nov" : {
          "1" : "wed",
          "10" : "fri",
          "13" : "mon",
@@ -1585,7 +1584,7 @@ var workdays = {
          "8" : "wed",
          "9" : "thu"
       },
-      "oct" : {
+      "Oct" : {
          "10" : "tue",
          "11" : "wed",
          "12" : "thu",
@@ -1609,7 +1608,7 @@ var workdays = {
          "6" : "fri",
          "9" : "mon"
       },
-      "sep" : {
+      "Sep" : {
          "1" : "fri",
          "11" : "mon",
          "12" : "tue",
@@ -1634,7 +1633,7 @@ var workdays = {
       }
    },
    "2018" : {
-      "apr" : {
+      "Apr" : {
          "1" : "sun",
          "10" : "tue",
          "11" : "wed",
@@ -1658,7 +1657,7 @@ var workdays = {
          "6" : "fri",
          "9" : "mon"
       },
-      "aug" : {
+      "Aug" : {
          "1" : "wed",
          "10" : "fri",
          "13" : "mon",
@@ -1683,7 +1682,7 @@ var workdays = {
          "8" : "wed",
          "9" : "thu"
       },
-      "dec" : {
+      "Dec" : {
          "10" : "mon",
          "11" : "tue",
          "12" : "wed",
@@ -1706,7 +1705,7 @@ var workdays = {
          "6" : "thu",
          "7" : "fri"
       },
-      "feb" : {
+      "Feb" : {
          "1" : "thu",
          "12" : "mon",
          "13" : "tue",
@@ -1728,7 +1727,7 @@ var workdays = {
          "8" : "thu",
          "9" : "fri"
       },
-      "jan" : {
+      "Jan" : {
          "1" : "mon",
          "10" : "wed",
          "11" : "thu",
@@ -1753,7 +1752,7 @@ var workdays = {
          "8" : "mon",
          "9" : "tue"
       },
-      "jul" : {
+      "Jul" : {
          "10" : "tue",
          "11" : "wed",
          "12" : "thu",
@@ -1777,7 +1776,7 @@ var workdays = {
          "6" : "fri",
          "9" : "mon"
       },
-      "jun" : {
+      "Jun" : {
          "1" : "fri",
          "11" : "mon",
          "12" : "tue",
@@ -1801,7 +1800,7 @@ var workdays = {
          "7" : "thu",
          "8" : "fri"
       },
-      "mar" : {
+      "Mar" : {
          "1" : "thu",
          "12" : "mon",
          "13" : "tue",
@@ -1825,7 +1824,7 @@ var workdays = {
          "8" : "thu",
          "9" : "fri"
       },
-      "may" : {
+      "May" : {
          "1" : "tue",
          "10" : "thu",
          "11" : "fri",
@@ -1850,7 +1849,7 @@ var workdays = {
          "8" : "tue",
          "9" : "wed"
       },
-      "nov" : {
+      "Nov" : {
          "1" : "thu",
          "12" : "mon",
          "13" : "tue",
@@ -1874,7 +1873,7 @@ var workdays = {
          "8" : "thu",
          "9" : "fri"
       },
-      "oct" : {
+      "Oct" : {
          "1" : "mon",
          "10" : "wed",
          "11" : "thu",
@@ -1899,7 +1898,7 @@ var workdays = {
          "8" : "mon",
          "9" : "tue"
       },
-      "sep" : {
+      "Sep" : {
          "10" : "mon",
          "11" : "tue",
          "12" : "wed",
@@ -1923,5 +1922,4 @@ var workdays = {
       }
    }
 };
-
 

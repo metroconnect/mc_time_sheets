@@ -35,6 +35,7 @@ foreach my $theYear ($startYear .. $startYear+5) {
 
 	for my $month (@months) {
 
+		my $nice_month = ucfirst($month);
    		# Skip to the first day of the week
   		 $weekDayNum = 0;
    		 until ($firstWeekDay == $weekDayNum) { $weekDayNum++; }
@@ -46,10 +47,10 @@ foreach my $theYear ($startYear .. $startYear+5) {
       			my $day = $weekDays[$weekDayNum];
 			my $holidayName = isHoliday($dayCount);
 			
-			if ($holidayName) { $holidays->{$theYear}->{$month}->{$dayNum} = $holidayName; }
-			if (!($day=~/sat|sun/) || ($holidayName)) { $workdays->{$theYear}->{$month}->{$dayNum} = $day; }
+			if ($holidayName) { $holidays->{$theYear}->{$nice_month}->{$dayNum} = $holidayName; }
+			if (!($day=~/sat|sun/) || ($holidayName)) { $workdays->{$theYear}->{$nice_month}->{$dayNum} = $day; }
 
-      			$cal->{$month}->{$dayNum}={ 
+      			$cal->{$nice_month}->{$dayNum}={ 
 				'day' 	  => $day,
 				'workday' => ($day =~ /sat|sun/) || ($holidayName)  ? 0 : 1,
 				'holiday' => $holidayName
@@ -73,9 +74,12 @@ foreach my $theYear ($startYear .. $startYear+5) {
 	my $coder = JSON::XS->new->ascii->pretty->allow_nonref->canonical;
 	
  	my $json_holidays = $coder->encode ($holidays);
- 	my $json_workdays = $coder->encode ($holidays);
-	printf("var holidays = %s;\n\n",$coder->encode($holidays));
-	printf("var workdays = %s;\n\n",$coder->encode($workdays));
+ 	my $json_workdays = $coder->encode ($workdays);
+	chomp($json_holidays);
+	chomp($json_workdays);
+
+	printf("var holidays = %s;\n\n",$json_holidays);
+	printf("var workdays = %s;\n\n",$json_workdays);
 
 sub isHoliday {
 
