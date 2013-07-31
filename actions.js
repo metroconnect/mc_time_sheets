@@ -4,7 +4,9 @@ function doActions() {
         //  ---------------------------------
         // | Close faults with various codes | 
         //  ---------------------------------
-   
+  
+     console.log("Installing handlers.");
+ 
      $("a[name^='timecheck_']").each(function() { 
 	
 	var thisbutton = $(this);
