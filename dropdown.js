@@ -12,7 +12,7 @@ function getDropDown(incidentRequest) {
 
 
          newButton += '' +
-		'  <li><a id="check_july" href="#">Check: July 2013</a></li> ' +
+		'  <li><a id="timecheck_july" href="#">Check: July 2013</a></li> ' +
                 ' <li><hr style=" color:#000000; border: 1px #000000;  height:1px; width:350px;"></li> ';
 
     newButton +=   '</ul> ' + '</div>';
