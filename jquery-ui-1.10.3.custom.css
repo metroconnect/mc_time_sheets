@@ -483,7 +483,6 @@ button.ui-button::-moz-focus-inner {
 	width: 90%;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	height:15px;
 }
 .ui-dialog .ui-dialog-titlebar-close {
 	position: absolute;
@@ -813,6 +812,7 @@ body .ui-tooltip {
 	background: #cccccc url(https://ahouston.net/js/css/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
 	color: #222222;
 	font-weight: bold;
+	height:15px;
 }
 .ui-widget-header a {
 	color: #222222;
