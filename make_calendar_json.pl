@@ -12,9 +12,9 @@ use JSON;
 	
 	my $cal_ZA = Date::Calendar->new( $Profiles->{'ZA'});
 
-	my @weekDays = ("sun", "mon", "tue", "wed", "thu", "fri", "sat");
-	my @months   = ('jan', 'feb', 'mar', 'apr', 'may', 'jun',
-              		'jul', 'aug', 'sep', 'oct', 'nov', 'dec');
+	my @weekDays = ("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
+	my @months   = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+              		'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
 
 	my $holidayDays;
 	my $holidays;
@@ -97,12 +97,12 @@ sub getDaysInMonth {
 
    my $theYear = shift;
 
-   my %daysInMonth = ("jan" => 31, "feb" => 28, "mar" => 31, "apr" => 30,
-                   "may" => 31, "jun" => 30, "jul" => 31, "aug" => 31,
-                   "sep" => 30, "oct" => 31, "nov" => 30, "dec" => 31);
+   my %daysInMonth = (	"Jan" => 31, "Feb" => 28, "Mar" => 31, "Apr" => 30,
+                   	"May" => 31, "Jun" => 30, "Jul" => 31, "Aug" => 31,
+                   	"Sep" => 30, "Oct" => 31, "Nov" => 30, "Dec" => 31);
 
    if (((($theYear % 4) == 0) && (($theYear % 100) != 0)) || ($theYear % 400) == 0) {
-      $daysInMonth{'feb'} = 29;
+      $daysInMonth{'Feb'} = 29;
    }
 
    return(\%daysInMonth);
