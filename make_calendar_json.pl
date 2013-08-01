@@ -16,9 +16,19 @@ use JSON;
 	my @months   = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
               		'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
 
+
+	my $monthShortLong = {	'Jan' => 'January', 'Feb' => 'February', 'Mar' => 'March', 
+				'Apr' => 'April', 'May' => 'May', 'Jun' => 'June',
+                        	'Jul' => 'July', 'Aug' => 'August', 'Sep' => 'September',
+				'Oct' => 'October', 'Nov' => 'November', 'Dec' => 'December'
+	};
+
+		
 	my $holidayDays;
 	my $holidays;
 	my $workdays;
+	my $months;
+
 	my $cal;
 
 foreach my $theYear ($startYear .. $startYear+5) { 
@@ -73,13 +83,17 @@ foreach my $theYear ($startYear .. $startYear+5) {
 
 	my $coder = JSON::XS->new->ascii->pretty->allow_nonref->canonical;
 	
- 	my $json_holidays = $coder->encode ($holidays);
+ 	my $json_holidays = $coder->encode($holidays); 
  	my $json_workdays = $coder->encode ($workdays);
-	chomp($json_holidays);
-	chomp($json_workdays);
+ 	my $json_months   = $coder->encode ($monthShortLong);
 
+        chomp($json_holidays);
+        chomp($json_workdays);
+        chomp($json_months);
+	
 	printf("var holidays = %s;\n\n",$json_holidays);
 	printf("var workdays = %s;\n\n",$json_workdays);
+	printf("var months = %s;\n\n",$json_months);
 
 sub isHoliday {
 
