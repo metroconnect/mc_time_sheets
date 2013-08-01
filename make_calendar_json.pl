@@ -48,11 +48,11 @@ foreach my $theYear ($startYear .. $startYear+5) {
 			my $holidayName = isHoliday($dayCount);
 			
 			if ($holidayName) { $holidays->{$theYear}->{$nice_month}->{$dayNum} = $holidayName; }
-			if (!($day=~/sat|sun/) || ($holidayName)) { $workdays->{$theYear}->{$nice_month}->{$dayNum} = $day; }
+			if (!($day=~/Sat|Sun/i) || ($holidayName)) { $workdays->{$theYear}->{$nice_month}->{$dayNum} = $day; }
 
       			$cal->{$nice_month}->{$dayNum}={ 
 				'day' 	  => $day,
-				'workday' => ($day =~ /sat|sun/) || ($holidayName)  ? 0 : 1,
+				'workday' => ($day =~ /Sat|Sun/i) || ($holidayName)  ? 0 : 1,
 				'holiday' => $holidayName
       			};
 
