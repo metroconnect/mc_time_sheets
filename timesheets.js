@@ -3,20 +3,31 @@
 // @namespace  https://github.com/metroconnect/mc_glist
 // @version    2.0.0
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery.min.js
-// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/calendar.js?moo4
+// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/calendar.js?moo5
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui.js
-// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/actions.js?mo1235
-// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/dropdown.js?mo123
-// @resource   customCSS https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui-1.10.3.custom.css?moo12
+// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/actions.js?moo
+// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/functions.js?moo
+// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/dropdown.js?moo
+// @resource   customCSS https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui-1.10.3.custom.css?moo
 // @description MetroConnect ServiceNow Actions
 // @include    https://didataservices.service-now.com/task_time_worked_list.do*
+// @include    https://didataservices.service-now.com/task_time_worked.do?&mc_time_sheets=1*
 // @copyright  2013, Allan Houston
 // ==/UserScript==
 
 
+  var thisURL  = document.location.href;
 
+  if (thisURL.match(/task_time_worked.do/)) { 
+
+        	doAddHours();
+  }
+
+  else { 
 
 	var checkMonth = "Jul"; 	// Need to get this from the dropdown
+	var checkYear = "2013";
+
 	var checkMonthLong = (checkMonth in months) ? months[checkMonth] : '';		// Basically want no match if we don't find a month xlate
 
 	var workloadURL = "https://didataservices.service-now.com/task_time_worked.do?&mc_time_sheets=1&sys_id=-1&sysparm_collection=incident&sysparm_collectionID=";			// Workload URL
@@ -86,9 +97,45 @@
 		}
 
 		checkDays();
+ }
 
-		
+//  --------------------------------------
+// | Add Hours 
+//  --------------------------------------
 
+
+function doAddHours(hours) {
+    
+    if (!(hours)) { hours = 1; }
+    
+    var timesheetDate = getQueryVariable("timesheet_date");
+    
+    console.log("Found date: " + timesheetDate);
+    
+    $("#task_time_worked\\.u_start_time").val(timesheetDate+ " 09:00:00");
+    $("#task_time_worked\\.u_start_time").trigger('onblur');
+    
+    setTimeout(function () {
+        $("#ni\\.task_time_worked\\.time_workeddur_hour").val(hours).trigger("onblur");
+    },250);
+    
+}
+
+//  --------------------------------------
+// | Parse a URL
+//  --------------------------------------
+
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+    console.log('Query variable %s not found', variable);
+}
 
 
 //  --------------------------------------
@@ -114,19 +161,23 @@ function checkDays() {
     
         var hours = 0;
         if (month in data) { 
+            sysID = data[month]["sysID"];
             if (key in data[month]) {    
            		hours = data[month][key]["hours"];
+                
             }
         }
         
+        var snDate = zeroPad(key) + "-" + month + "-" + checkYear;
+        
         var required_hours = parseInt(8 - hours);
         var required_icon = required_hours <= 0 ? check_icon : alert_icon;
-        var required_txt = 8 - hours < 0 ? " over by " + parseInt((8-hours)*-1) + " hours" : 8 - hours == 0 ? " Perfect!" : " need " + parseInt(8-hours) + " hours";
+        var required_txt = 8 - hours < 0 ? " over by " + parseInt((8-hours)*-1) + " hours" : 8 - hours == 0 ? " Perfect!" : makeURL(sysID,snDate,"Need " + parseInt(8-hours) + " hours");
         
         var dayNum = parseInt(key);
         var date_str = day + " " + toOrdinal(dayNum) + " " + month;
         
-        buff += required_icon + "<p style='margin: 0px'><span style='width:150px; font-weight:bold;'>" + date_str + ":</span><span>" + required_txt + "</span></p><br>";
+        buff += required_icon + "<p style='margin: 0px'><span style='width:150px; font-weight:bold;'>" + date_str + ":</span><span> " + required_txt + "</span></p><br>";
         
 	}
     
@@ -136,7 +187,8 @@ function checkDays() {
    
    
 }
-    
+
+
 //  --------------------------------------
 // | Iterate through the rows and parse 
 //  --------------------------------------
@@ -263,41 +315,11 @@ function parseRows() {
 
 }
 
-function setRows(rows) {
 
-	var list = unsafeWindow.GlideList2.get('task_time_worked');
-	
-    try { var rowsPerPage = list.rowsPerPage; }   // Occasion undefined error - try/catch should work around for the moment
-    catch(err) { return; }
-	
-	if (rowsPerPage != rows) { 
-        	console.log('Found ' + rowsPerPage+ ' rows, setting to ' + rows);
-        	list.setRowsPerPage(rows);
-    }
+function currentDate() {
+    
     
 }
-
-function toOrdinal(number) {
-    
-		var n = number % 100;
-		var suff = ["th", "st", "nd", "rd", "th"]; // suff for suffix
-		var ord= n<21?(n<4 ? suff[n]:suff[0]): (n%10>4 ? suff[0] : suff[n%10]);	
-		return number + ord;
-}
-
-
-function fetchMyTasks() {
- 
-    console.log("Fetching user's task list...");
-    var url = 'https://didataservices.service-now.com/task_list.do?&sysparm_query=active=true^assigned_to=javascript:getMyAssignments()^EQ';
-    
-    $.get(url, function(data) {
-  		//$('#my_task_list').html(data);
-  		//console.log(data);
-	});
-       
-}
-
 
 $(function() {
     
@@ -358,3 +380,5 @@ $(function() {
 
         });
 });
+
+
