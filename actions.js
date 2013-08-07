@@ -16,11 +16,14 @@ function doActions() {
 	thisbutton.click(function() {
  
 		var thisthis = $(this);
-		var monthClicked =thisthis.attr("name");
-		monthClicked = monthClicked.replace("timecheck_","");
+		var menuName =thisthis.attr("name");
 		
-		checkMonth = ucfirst(monthClicked);
-		alert("Month: " + checkMonth);	
+		var menuVals = menuName.split("_");
+		var monthClicked = menuVals[1];
+		var yearClicked = menuVals[2];
+
+		monthClicked = ucfirst(monthClicked);
+		alert("Month: " + monthClicked + ", Year: " + yearClicked);	
 	
     		$("#dialog-confirm" ).dialog({
       
