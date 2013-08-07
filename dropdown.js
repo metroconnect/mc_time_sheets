@@ -23,7 +23,7 @@ function getDropDown(incidentRequest) {
 		var loopMonthLong = months[loopMonth];	
  
          	newButton += '' +
-			'  <li><a name="timecheck_'+loopMonth+'_'+loopYear+'" id="timecheck_'+loopMonth+'_'+loopYear+'" href="#">Check: '+loopMonthLong+' '+loopYear+'</a></li> ' +
+			'  <li><a name="timecheck_'+loopMonth+'_'+loopYear+'" id="timecheck_'+loopMonth+'_'+loopYear+'" href="#">Check: '+loopMonthLong+' '+loopYear+'</a></li> ';
 
 	}
 
