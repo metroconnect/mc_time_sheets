@@ -10,6 +10,7 @@ function doActions() {
      $("a[name^='timecheck_']").each(function() { 
 	
 	var thisbutton = $(this);
+
 	//console.log("Adding handler:");
 	//console.log(thisbutton);
 
