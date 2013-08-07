@@ -23,6 +23,14 @@ use JSON;
 				'Oct' => 'October', 'Nov' => 'November', 'Dec' => 'December'
 	};
 
+	my $monthNum = { 	
+				0 => 'Jan', 1 => 'Feb', 2 => 'Mar', 3 => 'Apr', 4 => 'May',
+				5 => 'Jun', 6 => 'Jul', 7 => 'Aug', 8 => 'Sep', 9 => 'Oct',
+				10 => 'Nov', 11 => 'Dec'
+	};
+				
+	
+
 		
 	my $holidayDays;
 	my $holidays;
@@ -86,14 +94,17 @@ foreach my $theYear ($startYear .. $startYear+5) {
  	my $json_holidays = $coder->encode($holidays); 
  	my $json_workdays = $coder->encode ($workdays);
  	my $json_months   = $coder->encode ($monthShortLong);
+ 	my $json_monthnum = $coder->encode ($monthNum);
 
         chomp($json_holidays);
         chomp($json_workdays);
         chomp($json_months);
+        chomp($json_monthnum);
 	
 	printf("var holidays = %s;\n\n",$json_holidays);
 	printf("var workdays = %s;\n\n",$json_workdays);
 	printf("var months = %s;\n\n",$json_months);
+	printf("var monthnum = %s;\n\n",$json_monthnum);
 
 sub isHoliday {
 
