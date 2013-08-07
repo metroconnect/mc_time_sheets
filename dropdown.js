@@ -24,7 +24,7 @@ function getDropDown(incidentRequest) {
 
 		var loopYear = (c<0) ? thisYear-1 : (c>11) ? thisYear+1 : thisYear;	// When we cross year boundry
 		var loopMonthNum = (c<0) ? 12 + c : (c>11) ?  c-12 : c;		// Months across year boundry
-		var loopMonth = month_num[loopMonth];
+		var loopMonth = month_num[loopMonthNum];
 		var loopMonthLong = months[loopMonth];	
  
 		console.log('C: ' + c + ' , loopYear: ' + loopYear + ' , loopMonthNum: ' + loopMonthNum  + ' , loopMonth: ' + loopMonth + ' , loopMonthLong: ' + loopMonthLong);
