@@ -24,7 +24,10 @@ function doActions() {
 
 		monthClicked = ucfirst(monthClicked);
 		alert("Month: " + monthClicked + ", Year: " + yearClicked);	
-	
+
+		checkDays(monthClicked,yearClicked);
+
+		/*	
     		$("#dialog-confirm" ).dialog({
       
 			resizable: false,
@@ -38,6 +41,7 @@ function doActions() {
         			}
       			}
     		});
+		*/
 	
 	});
 
