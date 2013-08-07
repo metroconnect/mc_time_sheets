@@ -1,6 +1,11 @@
 function getDropDown(incidentRequest) {
 
         var newButton = "";
+	
+	var date = new Date();
+	var monthNum = date.getMonth();
+	var thisMonth = (monthNum in month_num) ? month_num[monthNum] : '';
+	var thisYear = date.getFullYear();
 
         newButton += '<div id="split_button_div" style="width: 280px; display: none;"> ' +
         '<div> ' +
@@ -10,12 +15,17 @@ function getDropDown(incidentRequest) {
                 '</div> ' +
                 '<ul> ';
 
+	for (c = monthNum-2; c <= monthNum+2; c++) { 
 
-         newButton += '' +
-		'  <li><a name="timecheck_jul_2013" id="timecheck_jul" href="#">Check: July 2013</a></li> ' +
-		'  <li><a name="timecheck_aug_2013" id="timecheck_aug" href="#">Check: August 2013</a></li> ' +
-		'  <li><a name="timecheck_sep_2013" id="timecheck_sep" href="#">Check: September 2013</a></li> ' +
-                ' <li><hr style=" color:#000000; border: 1px #000000;  height:1px; width:350px;"></li> ';
+		var loopYear = (c<0) ? thisYear-1 : (c>11) ? thisYear+1 : thisYear;	// When we cross year boundry
+		var loopMonthNum = (c<0) ? 12 + c : (c>11) ? 12 - c : c;		// Months across year boundry
+		var loopMonth = month_num[loopMonth];
+		var loopMonthLong = months[loopMonth];	
+ 
+         	newButton += '' +
+			'  <li><a name="timecheck_'+loopMonth+'_'+loopYear+'" id="timecheck_'+loopMonth+'_'+loopYear+'" href="#">Check: '+loopMonthLong+' '+loopYear+'</a></li> ' +
+
+	}
 
     newButton +=   '</ul> ' + '</div>';
     return(newButton);
