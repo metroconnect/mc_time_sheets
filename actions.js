@@ -17,7 +17,21 @@ function doActions() {
  
 		var thisthis = $(this);
 		var monthClicked =thisthis.attr("name");
-		alert(monthClicked); 
+		
+    		$("#dialog-confirm" ).dialog({
+      
+			resizable: false,
+      			height:450,
+      			width:500, 
+      			modal: true,
+      			position: { my: "top+50", at: "top", of: "div#task_time_worked_expanded" },
+      			buttons: {
+        			Done: function() {
+          				$( this ).dialog( "close" );
+        			}
+      			}
+    		});
+	
 	});
 
       });

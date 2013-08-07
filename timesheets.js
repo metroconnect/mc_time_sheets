@@ -39,10 +39,9 @@
 	console.log("Confirmed we have 200 Rows per Page");
 
 	var debug = {
-        
-        findTimesheets : false,
-        
-    };
+
+        	findTimesheets : false,
+    	};
 
 	//  -----------------------------------
 	// | Load the jquery-ui css resource in
@@ -72,8 +71,8 @@
 
    		setTimeout(function() { 
             		$("#ui-id-1").css('position','absolute');
-        			$("#ui-id-1").css('text-align','left');
-					$("#split_button_div").css('display', 'inline-block');
+        		$("#ui-id-1").css('text-align','left');
+			$("#split_button_div").css('display', 'inline-block');
             		
             		doActions(); 	// Setup the handlers for the menu
    		}, 250);
