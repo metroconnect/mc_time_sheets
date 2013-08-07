@@ -1938,7 +1938,7 @@ var months = {
    "Sep" : "September"
 };
 
-var monthnum = {
+var month_num = {
    "0" : "Jan",
    "1" : "Feb",
    "10" : "Nov",

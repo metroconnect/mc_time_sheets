@@ -104,7 +104,7 @@ foreach my $theYear ($startYear .. $startYear+5) {
 	printf("var holidays = %s;\n\n",$json_holidays);
 	printf("var workdays = %s;\n\n",$json_workdays);
 	printf("var months = %s;\n\n",$json_months);
-	printf("var monthnum = %s;\n\n",$json_monthnum);
+	printf("var month_num = %s;\n\n",$json_monthnum);
 
 sub isHoliday {
 
