@@ -73,8 +73,8 @@ function error_screen(string) {
 	$("#error-dialog").dialog({
 
                         resizable: false,
-                        height:300,
-                        width:200,
+                        height:400,
+                        width:300,
                         modal: true,
 			dialogClass: "alert",
                         position: { my: "top+50", at: "top", of: "div#task_time_worked_expanded" },
