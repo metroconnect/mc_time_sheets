@@ -15,13 +15,19 @@ function getDropDown(incidentRequest) {
                 '</div> ' +
                 '<ul> ';
 
-	for (c = monthNum-2; c <= monthNum+2; c++) { 
+	console.log("Months:");
+	console.log(months);
+
+	monthRange = 6;
+	for (c = monthNum-monthRange; c <= monthNum+monthRange; c++) { 
 
 		var loopYear = (c<0) ? thisYear-1 : (c>11) ? thisYear+1 : thisYear;	// When we cross year boundry
 		var loopMonthNum = (c<0) ? 12 + c : (c>11) ? 12 - c : c;		// Months across year boundry
 		var loopMonth = month_num[loopMonth];
 		var loopMonthLong = months[loopMonth];	
  
+		console.log('C: ' + c + ' , loopYear: ' + loopYear + ' , loopMonthNum: ' + loopMonthNum  + ' , loopMonth: ' + loopMonth + ' , loopMonthLong: ' + loopMonthLong);
+
          	newButton += '' +
 			'  <li><a name="timecheck_'+loopMonth+'_'+loopYear+'" id="timecheck_'+loopMonth+'_'+loopYear+'" href="#">Check: '+loopMonthLong+' '+loopYear+'</a></li> ';
 
