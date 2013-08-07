@@ -17,12 +17,13 @@ function getDropDown(incidentRequest) {
 
 	console.log("Months:");
 	console.log(months);
+	console.log(month_num);
 
 	monthRange = 6;
 	for (c = monthNum-monthRange; c <= monthNum+monthRange; c++) { 
 
 		var loopYear = (c<0) ? thisYear-1 : (c>11) ? thisYear+1 : thisYear;	// When we cross year boundry
-		var loopMonthNum = (c<0) ? 12 + c : (c>11) ? 12 - c : c;		// Months across year boundry
+		var loopMonthNum = (c<0) ? 12 + c : (c>11) ?  c-12 : c;		// Months across year boundry
 		var loopMonth = month_num[loopMonth];
 		var loopMonthLong = months[loopMonth];	
  
