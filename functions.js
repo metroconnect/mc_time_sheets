@@ -60,3 +60,30 @@ function toOrdinal(number) {
 function ucfirst(string) { 
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+
+//  --------------------------------------
+// | Pop a nice error screen
+//  --------------------------------------
+
+function error_screen(string) { 
+
+	string.replace("\n","<br>");
+	$("#error_message").html("<p id='error_message'>"+string+"</p>");
+	$("#error-dialog").dialog({
+
+                        resizable: false,
+                        height:300,
+                        width:200,
+                        modal: true,
+			dialogClass: "alert",
+                        position: { my: "top+50", at: "top", of: "div#task_time_worked_expanded" },
+                        buttons: {
+                                OK: function() {
+                                        $( this ).dialog( "close" );
+					$("#error_message").html("<p id='error_message'></p>");
+                                }
+                        }
+    });
+}
+
