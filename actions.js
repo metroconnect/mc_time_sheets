@@ -17,7 +17,11 @@ function doActions() {
  
 		var thisthis = $(this);
 		var monthClicked =thisthis.attr("name");
+		monthClicked = monthClicked.replace("timecheck_","");
 		
+		checkMonth = ucfirst(monthClicked);
+		alert("Month: " + checkMonth);	
+	
     		$("#dialog-confirm" ).dialog({
       
 			resizable: false,
