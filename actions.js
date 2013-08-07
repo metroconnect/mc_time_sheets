@@ -23,7 +23,6 @@ function doActions() {
 		var yearClicked = menuVals[2];
 
 		monthClicked = ucfirst(monthClicked);
-		alert("Month: " + monthClicked + ", Year: " + yearClicked);	
 
 		checkDays(monthClicked,yearClicked);
 
