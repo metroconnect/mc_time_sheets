@@ -3,11 +3,11 @@
 // @namespace  https://github.com/metroconnect/mc_glist
 // @version    2.0.0
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery.min.js
-// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/calendar.js?moo5
+// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/calendar.js?moo1444
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui.js
-// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/actions.js?moo
-// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/functions.js?moo
-// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/dropdown.js?moo
+// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/actions.js?moo12644
+// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/functions.js?moo1111
+// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/dropdown.js?moo2
 // @resource   customCSS https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui-1.10.3.custom.css?moo
 // @description MetroConnect ServiceNow Actions
 // @include    https://didataservices.service-now.com/task_time_worked_list.do*
@@ -39,9 +39,10 @@
 	console.log("Confirmed we have 200 Rows per Page");
 
 	var debug = {
-
-        	findTimesheets : false,
-    	};
+        
+        findTimesheets : false,
+        
+    };
 
 	//  -----------------------------------
 	// | Load the jquery-ui css resource in
@@ -56,6 +57,9 @@
 		existingInner += "<div id='dialog-confirm' style='display: none;' title='Checking workload for " + checkMonthLong +"'>\n";
 		existingInner += "<p id='workload_message'>\n";
 		existingInner += "</p></div>\n";
+      	existingInner += "<div id='error-dialog' style='display: none;' title='Error'>\n";
+		existingInner += "<p id='error_message'></p>\n";
+		existingInner += "</p></div>\n";      	
 
 		var alert_icon = "<span class='ui-icon ui-icon-alert' style='float: left; margin: 0 7px 0px 0;'></span>";
 		var check_icon = "<span class='ui-icon ui-icon-check' style='float: left; margin: 0 7px 0px 0;'></span>";
@@ -71,9 +75,9 @@
 
    		setTimeout(function() { 
             		$("#ui-id-1").css('position','absolute');
-        		$("#ui-id-1").css('text-align','left');
-			$("#split_button_div").css('display', 'inline-block');
-            		
+        			$("#ui-id-1").css('text-align','left');
+					$("#split_button_div").css('display', 'inline-block');
+            		console.log("CSS set for dropdown");
             		doActions(); 	// Setup the handlers for the menu
    		}, 250);
 	
@@ -95,8 +99,11 @@
             $("#dialog-confirm").attr("title",currTitle + " (Using " + taskID + " - " + taskComment + ")");
 		}
 
-		checkDays();
+		
  }
+
+
+
 
 //  --------------------------------------
 // | Add Hours 
@@ -141,31 +148,46 @@ function getQueryVariable(variable) {
 // | Iterate through days and check hours
 //  --------------------------------------
 
-function checkDays() { 
+function checkDays(month,year) { 
 	
-    var year='2013';
-    var month='Jul';
     var monthWorkdays = workdays[year][month];
     var wdays = [];
     var buff = '';
+    var sysID = '';
+    
+    var monthLong = (month in months) ? months[month] : '';		// Basically want no match if we don't find a month xlate
+    
+    $("#dialog-confirm").attr("title","Checking workload for " + monthLong);
     
     // First lets loop throught the sorted the keys of the monthWorkdays (key in seems to sort)
-    
     
     for (var key in monthWorkdays) {
     	if (key === 'length' || !monthWorkdays.hasOwnProperty(key)) continue;
         
    		var day = monthWorkdays[key];
-        //console.log(key);
+        console.log(data[month]);
     
         var hours = 0;
         if (month in data) { 
-            sysID = data[month]["sysID"];
-            if (key in data[month]) {    
-           		hours = data[month][key]["hours"];
+            
+            if ("sysID" in data[month]) {
                 
+                sysID = data[month]["sysID"];
+                console.log("Found sysID: "+sysID);
+            }
+            
+            if (key in data[month]) {
+                
+           		hours = data[month][key]["hours"];
             }
         }
+        
+        if (sysID.length==0) { 
+            	
+                error_screen("Error - couldn't find the ICM reference for call in " + monthLong + ".\nPlease create a workload entry with a description of either:\n'" + month + " Timesheet' or '" + monthLong + " Timesheet'");
+                return false;
+        }
+        
         
         var snDate = zeroPad(key) + "-" + month + "-" + checkYear;
         
@@ -182,7 +204,19 @@ function checkDays() {
     
     $("#workload_message").append(buff);
       
-    
+    $("#dialog-confirm" ).dialog({
+
+                        resizable: false,
+                        height:450,
+                        width:500,
+                        modal: true,
+                        position: { my: "top+50", at: "top", of: "div#task_time_worked_expanded" },
+                        buttons: {
+                                Done: function() {
+                                        $( this ).dialog( "close" );
+                                }
+                        }
+    });
    
    
 }
@@ -324,7 +358,7 @@ $(function() {
     
     
     
-    
+    /*
     $("#dialog-confirm" ).dialog({
       resizable: false,
       height:450,
@@ -332,14 +366,12 @@ $(function() {
       modal: true,
       position: { my: "top+50", at: "top", of: "div#task_time_worked_expanded" },
       buttons: {
-        "Add missing hours": function() {
-          alert("Adding hours!");
-        },
-        Cancel: function() {
+        Done: function() {
           $( this ).dialog( "close" );
         }
       }
     });
+	*/
 
     $( "#rerun" )
       .button()
@@ -379,5 +411,3 @@ $(function() {
 
         });
 });
-
-
