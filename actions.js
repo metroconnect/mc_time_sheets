@@ -24,7 +24,7 @@ function doActions() {
 		var yearClicked = menuVals[2];
 
 		monthClicked = ucfirst(monthClicked);
-
+		parseRows(monthClicked,yearClicked);
 		checkDays(monthClicked,yearClicked);
 
 		/*	
