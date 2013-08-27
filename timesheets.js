@@ -5,7 +5,7 @@
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery.min.js
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/calendar.js?moo1444
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui.js
-// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/actions.js?moo121
+// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/actions.js?moo1213
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/functions.js?moo1111
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/dropdown.js?moo2
 // @resource   customCSS https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui-1.10.3.custom.css?moo
@@ -69,6 +69,8 @@
 	// | we can fork for each department
 	//  ---------------------------------------------
     
+      	var data;							// Lets make this global
+      
 		var newButton = getDropDown();
    		target.html(newButton + existingInner);
 		//target.html(newButton);
@@ -81,6 +83,7 @@
             		doActions(); 	// Setup the handlers for the menu
    		}, 250);
 	
+        console.log("This is holidays:");
 		console.log(holidays);
      
       	// Now driven by dropdown
@@ -186,9 +189,11 @@ function checkDays(month,year) {
         
         var snDate = zeroPad(key) + "-" + month + "-" + checkYear;
         
-        var required_hours = parseInt(8 - hours);
+        var isHoliday = checkObjHasKeys(holidays,[year,month,key]);
+        console.log("Checking holiday for " + year + "," + month + "," + key + " : " + isHoliday);
+        var required_hours = isHoliday ? 0 : parseInt(8 - hours);
         var required_icon = required_hours <= 0 ? check_icon : alert_icon;
-        var required_txt = 8 - hours < 0 ? " over by " + parseInt((8-hours)*-1) + " hours" : 8 - hours == 0 ? " Perfect!" : makeURL(sysID,snDate,"Need " + parseInt(8-hours) + " hours");
+        var required_txt = isHoliday ? "Public Holiday: " + holidays[year][month][key] : 8 - hours < 0 ? " over by " + parseInt((8-hours)*-1) + " hours" : 8 - hours == 0 ? " Perfect!" : makeURL(sysID,snDate,"Need " + parseInt(8-hours) + " hours");
         
         var dayNum = parseInt(key);
         var date_str = day + " " + toOrdinal(dayNum) + " " + month;
@@ -345,6 +350,20 @@ function parseRows(checkMonth,checkYear) {
 
 }
 
+function checkObjHasKeys(obj, keys) {
+  var success = true;
+  
+  keys.forEach( function(key) {
+      //console.log("Checking Object: ");
+      //console.log(obj);
+      //console.log("Success: "+success);
+    if ( ! obj.hasOwnProperty(key)) {
+      success = false;
+    }
+    obj = obj[key];
+  })
+  return success;
+}
 
 function currentDate() {
     
