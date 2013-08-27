@@ -11,12 +11,15 @@
 
 function setRows(rows) {
 
-	var list = unsafeWindow.GlideList2.get('task_time_worked');
+    var list = unsafeWindow.GlideList2.get('task_time_worked');
 	
     try { var rowsPerPage = list.rowsPerPage; }   // Occasion undefined error - try/catch should work around for the moment
-    catch(err) { return; }
+    catch(err) {
+	console.warn("Error setting rowsPerPage to " + rows); 
+	return; 
+    }
 	
-	if (rowsPerPage != rows) { 
+    if (rowsPerPage != rows) { 
         	console.log('Found ' + rowsPerPage+ ' rows, setting to ' + rows);
         	list.setRowsPerPage(rows);
     }
