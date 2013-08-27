@@ -12,9 +12,10 @@
 function setRows(rows) {
 
     var list = unsafeWindow.GlideList2.get('task_time_worked');
+    var glist = unsafeWindow.GlideList2;
 
     console.warn("This is GlideList2:");
-    console.warn(list);   
+    console.warn(glist);   
 	
     try { var rowsPerPage = list.rowsPerPage; }   // Occasion undefined error - try/catch should work around for the moment
     catch(err) {
