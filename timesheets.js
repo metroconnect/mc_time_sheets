@@ -5,7 +5,7 @@
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery.min.js
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/calendar.js?moo1444
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui.js
-// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/actions.js?moo12644
+// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/actions.js?moo121
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/functions.js?moo1111
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/dropdown.js?moo2
 // @resource   customCSS https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui-1.10.3.custom.css?moo
@@ -88,18 +88,7 @@
       	// console.log("This is data after parseRows()");
 		// console.log(data);
 	
-		var taskID = "";
-		var taskComment = "";
-
-		if ((checkMonth in data) && ("taskID"  in data[checkMonth])) {
-            
-			taskID = data[checkMonth]["taskID"];
-            taskComment = data[checkMonth]["taskComment"];
-            
-            // Append the ICM reference to the task bar heading
-            var currTitle = $("#dialog-confirm").attr("title");
-            $("#dialog-confirm").attr("title",currTitle + " (Using " + taskID + " - " + taskComment + ")");
-		}
+		
 
 		
  }
@@ -235,7 +224,7 @@ function checkDays(month,year) {
 function parseRows(checkMonth,checkYear) {
 
     
-    var checkMonthLong = (month in months) ? months[month] : '';		// Basically want no match if we don't find a month xlate
+    var checkMonthLong = (checkMonth in months) ? months[checkMonth] : '';		// Basically want no match if we don't find a month xlate
     
     // Use jQuery to iterate over the selectors
     
@@ -419,5 +408,4 @@ $(function() {
 
         });
 });
-
 
