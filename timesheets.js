@@ -25,7 +25,7 @@
 
   else { 
 
-	var checkMonth = "Jul"; 	// Need to get this from the dropdown
+	var checkMonth = "Aug"; 	// Need to get this from the dropdown
 	var checkYear = "2013";
 
 	var checkMonthLong = (checkMonth in months) ? months[checkMonth] : '';		// Basically want no match if we don't find a month xlate
@@ -40,7 +40,7 @@
 
 	var debug = {
         
-        findTimesheets : false,
+        findTimesheets : true,
         
     };
 
@@ -83,8 +83,10 @@
 	
 		console.log(holidays);
      
-		var data = parseRows();
-		console.log(data);
+      	// Now driven by dropdown
+		// var data = parseRows();
+      	// console.log("This is data after parseRows()");
+		// console.log(data);
 	
 		var taskID = "";
 		var taskComment = "";
@@ -165,10 +167,14 @@ function checkDays(month,year) {
     	if (key === 'length' || !monthWorkdays.hasOwnProperty(key)) continue;
         
    		var day = monthWorkdays[key];
+        console.log("This is data[month]");
         console.log(data[month]);
     
         var hours = 0;
         if (month in data) { 
+            
+            console.log("This is month in data");
+            console.log(month);
             
             if ("sysID" in data[month]) {
                 
@@ -226,8 +232,10 @@ function checkDays(month,year) {
 // | Iterate through the rows and parse 
 //  --------------------------------------
 
-function parseRows() {
+function parseRows(checkMonth,checkYear) {
 
+    
+    var checkMonthLong = (month in months) ? months[month] : '';		// Basically want no match if we don't find a month xlate
     
     // Use jQuery to iterate over the selectors
     
@@ -411,3 +419,5 @@ $(function() {
 
         });
 });
+
+
