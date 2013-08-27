@@ -11,8 +11,8 @@
 
 function setRows(rows) {
 
-    var list = unsafeWindow.GlideList2.get('task_time_worked');
     var glist = unsafeWindow.GlideList2;
+    var list =  glist.get('task_time_worked');
 
     console.warn("This is GlideList2:");
     console.warn(glist);   
