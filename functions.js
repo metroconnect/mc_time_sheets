@@ -4,6 +4,24 @@
 // | main script easier to read
 //  --------------------------------------
 
+//  --------------------------------------
+// | Toggles Auto-Checking
+//  --------------------------------------
+
+function toggleAutoCheck() {
+
+    if (autoCheck == true) {
+
+        alert("Setting automatic checking: OFF");
+        GM_setValue("autoCheck",false);
+
+    }
+    else {
+        alert("Setting automatic checking: ON");
+        GM_setValue("autoCheck",true);
+    }
+}
+
 
 //  --------------------------------------
 // | Sets the number of rows in Glide

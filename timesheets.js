@@ -27,20 +27,19 @@
 
   else { 
 
-	var checkMonth = "Aug"; 	// Need to get this from the dropdown
-	var checkYear = "2013";
-
-	var checkMonthLong = (checkMonth in months) ? months[checkMonth] : '';		// Basically want no match if we don't find a month xlate
 
 	var workloadURL = "https://didataservices.service-now.com/task_time_worked.do?&mc_time_sheets=1&sys_id=-1&sysparm_collection=incident&sysparm_collectionID=";			// Workload URL
+
+	// Register some Toggles
+
+	GM_registerMenuCommand ("Toggle auto-check hours", toggleAutoCheck);
+	var autoCheck = GM_getValue("autoCheck",true);
 
 
 
 	var debug = {
-        
-        findTimesheets : true,
-        
-    };
+        	findTimesheets : true,
+    	};
 
 	//  -----------------------------------
 	// | Load the jquery-ui css resource in
@@ -374,6 +373,20 @@ $(function() {
     
 	var setRowsPerPage = 200;	// Lets get a nice big list so we can see the data in one page
 	setRows(setRowsPerPage);
+
+	
+    // Fire off the autoCheck if it's set
+
+	if (autoCheck) {
+
+		var todayDate = new Date();
+		var todayMonthNum = todayDate.getMonth();
+		var todayMonth = month_num[todayMonthNum];
+		var todayYear = todayDate.getFullYear();
+
+		var clickID = "#timecheck_" + todayMonth + "_" + todayYear;
+		$(clickID).click();
+     	}
     
     /*
     $("#dialog-confirm" ).dialog({
