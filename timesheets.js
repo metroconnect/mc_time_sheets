@@ -6,7 +6,7 @@
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/calendar.js?1
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui.js
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/actions.js?1
-// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/functions.js?1
+// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/functions.js?12
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/dropdown.js?1
 // @resource   customCSS https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui-1.10.3.custom.css?1
 // @description MetroConnect ServiceNow Actions
