@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       MetroConnect Timesheets
 // @namespace  https://github.com/metroconnect/mc_glist
-// @version    2.1.0
+// @version    2.1.1
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery.min.js
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/calendar.js?1
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui.js
@@ -70,13 +70,14 @@
       
 		var newButton = getDropDown();
    		target.html(newButton + existingInner);
-    
+    		
 		doActions(); 	// Setup the handlers for the menu
    		setTimeout(function() { 
             		$("#ui-id-1").css('position','absolute');
         			$("#ui-id-1").css('text-align','left');
 					$("#split_button_div").css('display', 'inline-block');
         			
+			doActions(); 	// Setup the handlers for the menu
             		console.log("CSS set for dropdown");
             		
    		}, 250);
