@@ -15,7 +15,10 @@ function setRows(rows) {
     var list =  glist.get('task_time_worked');
 
     console.warn("This is GlideList2:");
-    console.warn(glist);   
+    console.warn(glist);
+
+    console.warn("This is List:");
+    console.warn(list); 
 	
     try { var rowsPerPage = list.rowsPerPage; }   // Occasion undefined error - try/catch should work around for the moment
     catch(err) {
