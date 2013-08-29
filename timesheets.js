@@ -13,7 +13,7 @@
 // @include    https://didataservices.service-now.com/task_time_worked_list.do*
 // @include    https://didataservices.service-now.com/task_time_worked.do?&mc_time_sheets=1*
 // @updateURL  https://raw.github.com/metroconnect/mc_time_sheets/master/metadata.js
-// @downloadURL https://raw.github.com/metroconnect/mc_time_sheets/master/servicenow.js
+// @downloadURL https://raw.github.com/metroconnect/mc_time_sheets/master/timesheets.js
 // @copyright  2013, Allan Houston
 // ==/UserScript==
 
