@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       MetroConnect Timesheets
 // @namespace  https://github.com/metroconnect/mc_glist
-// @version    2.1.2
+// @version    2.1.3
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery.min.js
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/calendar.js?1
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui.js
@@ -74,12 +74,9 @@
 		doActions(); 	// Setup the handlers for the menu
    		setTimeout(function() { 
             		$("#ui-id-1").css('position','absolute');
-        			$("#ui-id-1").css('text-align','left');
-					$("#split_button_div").css('display', 'inline-block');
-        			
-			doActions(); 	// Setup the handlers for the menu
+        		$("#ui-id-1").css('text-align','left');
+			$("#split_button_div").css('display', 'inline-block');
             		console.log("CSS set for dropdown");
-            		
    		}, 250);
 	
 
@@ -382,23 +379,15 @@ $(function() {
 	var setRowsPerPage = 200;	// Lets get a nice big list so we can see the data in one page
 	setRows(setRowsPerPage);
 
-   
-    
-    /*
-    $("#dialog-confirm" ).dialog({
-      resizable: false,
-      height:450,
-      width:500, 
-      modal: true,
-      position: { my: "top+50", at: "top", of: "div#task_time_worked_expanded" },
-      buttons: {
-        Done: function() {
-          $( this ).dialog( "close" );
-        }
-      }
-    });
-	*/
+    setTimeout(function() {
+                        $("#ui-id-1").css('position','absolute');
+                        $("#ui-id-1").css('text-align','left');
+                        $("#split_button_div").css('display', 'inline-block');
+                        console.log("CSS set for dropdown");
+                }, 250);  
 
+ 
+    
     $( "#rerun" )
       .button()
       .click(function() {
