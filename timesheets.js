@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       MetroConnect Timesheets
 // @namespace  https://github.com/metroconnect/mc_glist
-// @version    2.0.6
+// @version    2.1.0
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery.min.js
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/calendar.js?1
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui.js
@@ -70,26 +70,33 @@
       
 		var newButton = getDropDown();
    		target.html(newButton + existingInner);
-		//target.html(newButton);
-
+    
+		doActions(); 	// Setup the handlers for the menu
    		setTimeout(function() { 
             		$("#ui-id-1").css('position','absolute');
         			$("#ui-id-1").css('text-align','left');
 					$("#split_button_div").css('display', 'inline-block');
+        			
             		console.log("CSS set for dropdown");
-            		doActions(); 	// Setup the handlers for the menu
+            		
    		}, 250);
 	
-        console.log("This is holidays:");
-		console.log(holidays);
-     
-      	// Now driven by dropdown
-		// var data = parseRows();
-      	// console.log("This is data after parseRows()");
-		// console.log(data);
-	
-		
 
+		// Fire off the autoCheck if it's set
+
+		if (autoCheck) {
+		
+        	console.warn("Firing autoCheck...");
+			var todayDate = new Date();
+			var todayMonthNum = todayDate.getMonth();
+			var todayMonth = month_num[todayMonthNum];
+			var todayYear = todayDate.getFullYear();
+
+			var clickID = "#timecheck_" + todayMonth + "_" + todayYear;
+        	console.warn(clickID);
+        	//console.warn($(''+clickID.click()));
+			$(''+clickID).click();
+     	}
 		
  }
 
@@ -185,7 +192,7 @@ function checkDays(month,year) {
         }
         
         
-        var snDate = zeroPad(key) + "-" + month + "-" + checkYear;
+        var snDate = zeroPad(key) + "-" + month + "-" + year;
         
         var isHoliday = checkObjHasKeys(holidays,[year,month,key]);
         console.log("Checking holiday for " + year + "," + month + "," + key + " : " + isHoliday);
@@ -374,19 +381,7 @@ $(function() {
 	var setRowsPerPage = 200;	// Lets get a nice big list so we can see the data in one page
 	setRows(setRowsPerPage);
 
-	
-    // Fire off the autoCheck if it's set
-
-	if (autoCheck) {
-
-		var todayDate = new Date();
-		var todayMonthNum = todayDate.getMonth();
-		var todayMonth = month_num[todayMonthNum];
-		var todayYear = todayDate.getFullYear();
-
-		var clickID = "#timecheck_" + todayMonth + "_" + todayYear;
-		$(clickID).click();
-     	}
+   
     
     /*
     $("#dialog-confirm" ).dialog({
@@ -433,6 +428,7 @@ $(function() {
             .menu();
 
         
+    
         $( "#refresh").button().click(function() { 
 
                 // Do the refresh here
@@ -440,5 +436,11 @@ $(function() {
                 parent.frames['gsft_main'].location.reload();
 
         });
+    
+     
+    
+    
+    
 });
+
 
