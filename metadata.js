@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       MetroConnect Timesheets
 // @namespace  https://github.com/metroconnect/mc_glist
-// @version    2.0.5
+// @version    2.0.5a
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery.min.js
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/calendar.js?1
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui.js
