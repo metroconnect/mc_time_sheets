@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       MetroConnect Timesheets
 // @namespace  https://github.com/metroconnect/mc_glist
-// @version    2.0.4
+// @version    2.0.5
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery.min.js
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/calendar.js?1
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui.js
@@ -34,8 +34,6 @@
 
 	var workloadURL = "https://didataservices.service-now.com/task_time_worked.do?&mc_time_sheets=1&sys_id=-1&sysparm_collection=incident&sysparm_collectionID=";			// Workload URL
 
-	var setRowsPerPage = 200;	// Lets get a nice big list so we can see the data in one page
-	setRows(setRowsPerPage);
 
 
 	var debug = {
@@ -373,6 +371,8 @@ function currentDate() {
 $(function() {
     
     
+	var setRowsPerPage = 200;	// Lets get a nice big list so we can see the data in one page
+	setRows(setRowsPerPage);
     
     /*
     $("#dialog-confirm" ).dialog({
