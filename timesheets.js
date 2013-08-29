@@ -51,7 +51,7 @@
 		var target = $("td.list_nav_top_middle");
 		var existingInner = target.html();
 		existingInner=existingInner.replace(/<script>.+<\/script>/g,'');
-		existingInner += "<div id='dialog-confirm' class='dialog-workload' style='display: none;' title='Checking workload'>\n";
+		existingInner += "<div id='dialog-confirm' style='display: none;' title='Checking workload'>\n";
 		existingInner += "<p id='workload_message'>\n";
 		existingInner += "</p></div>\n";
       	existingInner += "<div id='error-dialog' style='display: none;' title='Error'>\n";
