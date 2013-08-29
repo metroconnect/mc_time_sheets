@@ -154,9 +154,10 @@ function checkDays(month,year) {
     // First lets loop throught the sorted the keys of the monthWorkdays (key in seems to sort)
     
     for (var key in monthWorkdays) {
+
     	if (key === 'length' || !monthWorkdays.hasOwnProperty(key)) continue;
         
-   		var day = monthWorkdays[key];
+   	var day = monthWorkdays[key];
         console.log("This is data[month]");
         console.log(data[month]);
     

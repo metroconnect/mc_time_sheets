@@ -48,8 +48,8 @@ function makeURL(sysID,date,text) {
 //  --------------------------------------
 
 function zeroPad(num) { 
- 
-    num = (num<10) ? "0" : "" + num;
+
+    num = (num<10) ? "0" + num : "" + num;
     return(num);
 }
 
