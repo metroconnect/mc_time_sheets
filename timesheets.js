@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name       MetroConnect Timesheets
 // @namespace  https://github.com/metroconnect/mc_glist
-// @version    2.1.3
+// @version    2.1.4
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery.min.js
-// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/calendar.js?1
+// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/calendar.js
 // @require    https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui.js
-// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/actions.js?1
-// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/functions.js?12
-// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/dropdown.js?1
+// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/actions.js
+// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/functions.js
+// @require    https://raw.github.com/metroconnect/mc_time_sheets/master/dropdown.js
 // @resource   customCSS https://raw.github.com/metroconnect/mc_time_sheets/master/jquery-ui-1.10.3.custom.css?1
 // @description MetroConnect ServiceNow Actions
 // @include    https://didataservices.service-now.com/task_time_worked_list.do*
@@ -150,6 +150,8 @@ function checkDays(month,year) {
     var wdays = [];
     var buff = '';
     var sysID = '';
+   
+    if (typeof monthWorkdays=='undefined') { console.warn("Variable monthWorkdays is null for year="+year+", month="+month); return; } 
     
     var monthLong = (month in months) ? months[month] : '';		// Basically want no match if we don't find a month xlate
     
@@ -192,7 +194,8 @@ function checkDays(month,year) {
         
         var snDate = zeroPad(key) + "-" + month + "-" + year;
         
-        var isHoliday = checkObjHasKeys(holidays,[year,month,key]);
+        //var isHoliday = checkObjHasKeys(holidays,[year,month,key]);
+        var isHoliday = checkNested(holidays,year,month,key);			// Check if the day is a holiday
         console.log("Checking holiday for " + year + "," + month + "," + key + " : " + isHoliday);
         var required_hours = isHoliday ? 0 : parseInt(8 - hours);
         var required_icon = required_hours <= 0 ? check_icon : alert_icon;
@@ -353,19 +356,30 @@ function parseRows(checkMonth,checkYear) {
 
 }
 
-function checkObjHasKeys(obj, keys) {
-  var success = true;
-  
-  keys.forEach( function(key) {
-      //console.log("Checking Object: ");
-      //console.log(obj);
-      //console.log("Success: "+success);
-    if ( ! obj.hasOwnProperty(key)) {
-      success = false;
+
+// ----------------------------------
+// Checks an object for a nested key
+// which is passed as the arguments
+// var test = {level1:{level2:{level3:'level3'}} };
+// checkNested(test, 'level1', 'level2', 'level3'); // true
+// ----------------------------------
+
+function checkNested(obj /*, level1, level2, ... levelN*/) {
+    
+    var args = Array.prototype.slice.call(arguments),
+    obj = args.shift();
+    var success = true;
+    
+    for (var i = 0; i < args.length; i++) {
+       
+        if (obj == null || !obj.hasOwnProperty(args[i]) ) {
+            success=false;
+            return success;
+        }
+       
+        obj = obj[args[i]];
     }
-    obj = obj[key];
-  })
-  return success;
+    return success;
 }
 
 function currentDate() {
@@ -432,5 +446,6 @@ $(function() {
     
     
 });
+
 
 
